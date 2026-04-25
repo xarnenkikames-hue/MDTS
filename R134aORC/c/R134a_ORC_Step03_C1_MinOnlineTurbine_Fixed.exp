@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MWExperiment>
+    <ExperimentOptions>
+        <BasicOptions HistogramBars="20" ParalleNum="8" ifExportParameter="true" WorkPath="R134a_ORC_Step03_C1_MinOnlineTurbine_Fixed_exp"/>
+        <Model ModelName="R245faORC.c.R134a_ORC_Step03_C1_MinOnlineTurbine_Fixed"/>
+    </ExperimentOptions>
+    <Parameters>
+        <Inputs>
+            <Input VarType="Real" DisplayName="valve_k" Unit="" Minimum="" Varindex="1072656" Description="主阀固定开度" Maximum="" FullName="valve_k" DefaultValue="0.5" Active="false" VarRef="4" DisplayUnit="" DisplayValue="0.5"/>
+            <Input VarType="Real" DisplayName="turbine.V_s" Unit="m3" Minimum="" Varindex="1117456" Description="标称排量 (m3/rev)" Maximum="" FullName="turbine.V_s" DefaultValue="0.00029999999999999997" Active="false" VarRef="1706" DisplayUnit="m3" DisplayValue="0.00029999999999999997"/>
+            <Input VarType="Real" DisplayName="turbineInValveRamp.height" Unit="" Minimum="" Varindex="1130256" Description="Height of ramps" Maximum="" FullName="turbineInValveRamp.height" DefaultValue="0.0050000000000000001" Active="false" VarRef="2164" DisplayUnit="" DisplayValue="0.0050000000000000001"/>
+            <Input VarType="Real" DisplayName="turbineInValveRamp.startTime" Unit="s" Minimum="" Varindex="1130512" Description="Output y = offset for time &lt; startTime" Maximum="" FullName="turbineInValveRamp.startTime" DefaultValue="500" Active="false" VarRef="2168" DisplayUnit="s" DisplayValue="500"/>
+            <Input VarType="Real" DisplayName="turbineInValveRamp.duration" Unit="s" Minimum="" Varindex="1130320" Description="Duration of ramp (= 0.0 gives a Step)" Maximum="" FullName="turbineInValveRamp.duration" DefaultValue="120" Active="false" VarRef="2165" DisplayUnit="s" DisplayValue="120"/>
+        </Inputs>
+        <Outputs>
+            <Output VarType="Real" DisplayName="receiver.medium.p" Unit="Pa" Minimum="" Varindex="1074510" Description="Absolute pressure of medium" Maximum="" FullName="receiver.medium.p" DefaultValue="0" Active="true" VarRef="52" DisplayUnit="Pa" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="receiver.medium.h" Unit="J/kg" Minimum="" Varindex="1074638" Description="Specific enthalpy of medium" Maximum="" FullName="receiver.medium.h" DefaultValue="0" Active="true" VarRef="53" DisplayUnit="J/kg" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="receiver.medium.d" Unit="kg/m3" Minimum="" Varindex="1074752" Description="Density of medium" Maximum="" FullName="receiver.medium.d" DefaultValue="0" Active="true" VarRef="54" DisplayUnit="kg/m3" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="evaporator.Q_flow_1" Unit="W" Minimum="" Varindex="1082368" Description="管程侧传热总量" Maximum="" FullName="evaporator.Q_flow_1" DefaultValue="0" Active="true" VarRef="373" DisplayUnit="W" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="evaporator.Q_flow_2" Unit="W" Minimum="" Varindex="1082432" Description="壳程侧传热总量" Maximum="" FullName="evaporator.Q_flow_2" DefaultValue="0" Active="true" VarRef="374" DisplayUnit="W" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="mainValve.m_flow" Unit="kg/s" Minimum="" Varindex="1109120" Description="Mass flow rate in design flow direction" Maximum="" FullName="mainValve.m_flow" DefaultValue="0" Active="true" VarRef="1406" DisplayUnit="kg/s" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="turbine.m_flow" Unit="kg/s" Minimum="" Varindex="1119873" Description="正值代表从 port_in -> port_out" Maximum="" FullName="turbine.m_flow" DefaultValue="0" Active="true" VarRef="1702" DisplayUnit="kg/s" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="turbine.W_dot_mech" Unit="W" Minimum="" Varindex="1117312" Description="机械轴功率" Maximum="" FullName="turbine.W_dot_mech" DefaultValue="0" Active="true" VarRef="1704" DisplayUnit="W" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="turbine.W_dot_fluid" Unit="W" Minimum="" Varindex="1117376" Description="流体焓降功率" Maximum="" FullName="turbine.W_dot_fluid" DefaultValue="0" Active="true" VarRef="1705" DisplayUnit="W" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="shaftInertia.w" Unit="rad/s" Minimum="" Varindex="1123331" Description="Absolute angular velocity of component (= der(phi))" Maximum="" FullName="shaftInertia.w" DefaultValue="0" Active="true" VarRef="1903" DisplayUnit="rad/s" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="turbine.port_in.p" Unit="Pa" Minimum="" Varindex="1115265" Description="Thermodynamic pressure in the connection point" Maximum="" FullName="turbine.port_in.p" DefaultValue="0" Active="true" VarRef="1693" DisplayUnit="Pa" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="turbine.port_out.p" Unit="Pa" Minimum="" Varindex="1118785" Description="Thermodynamic pressure in the connection point" Maximum="" FullName="turbine.port_out.p" DefaultValue="0" Active="true" VarRef="1696" DisplayUnit="Pa" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="turbine.port_in.h_outflow" Unit="J/kg" Minimum="" Varindex="1117185" Description="Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0" Maximum="" FullName="turbine.port_in.h_outflow" DefaultValue="0" Active="true" VarRef="1694" DisplayUnit="J/kg" DisplayValue="0"/>
+            <Output VarType="Real" DisplayName="turbine.port_out.h_outflow" Unit="J/kg" Minimum="" Varindex="1117185" Description="Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0" Maximum="" FullName="turbine.port_out.h_outflow" DefaultValue="0" Active="true" VarRef="1697" DisplayUnit="J/kg" DisplayValue="0"/>
+        </Outputs>
+    </Parameters>
+    <Studies>
+        <Experiment TimeStamp="20260420103507342" MethodIndex="0" Type="Batch" Name="turbineInletValveOpeningScan">
+            <OriginInputs>
+                <BatchInputParameter FullName="valve_k" Active="false">
+                    <UserDataSets Values="0.5;0.5;0.5;0.5"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.5" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbine.V_s" Active="false">
+                    <UserDataSets Values="0.0003;0.0003;0.0003;0.0003"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.00029999999999999997" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.height" Active="true">
+                    <UserDataSets Values="0.5;0.1;0.005;0.01"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.0050000000000000001" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.startTime" Active="false">
+                    <UserDataSets Values="500;0;0;0"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="500" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.duration" Active="false">
+                    <UserDataSets Values="120;0;0;0"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="120" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+            </OriginInputs>
+            <SimInputs>
+                <BatchInputParameter FullName="turbineInValveRamp.height" Active="true">
+                    <UserDataSets Values="0.005;0.01;0.02;0.03;0.05;0.5"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.0050000000000000001" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+            </SimInputs>
+            <SimDesignMatrix>
+                <InputParameter VarType="Real" DisplayName="turbineInValveRamp.height" Unit="" Minimum="" Varindex="1130256" Description="Height of ramps" Maximum="" FullName="turbineInValveRamp.height" DefaultValue="0.0050000000000000001" Values="0.005;0.01;0.02;0.03;0.05;0.5" Active="true" VarRef="2164" DisplayUnit="" DisplayValue="0.0050000000000000001"/>
+            </SimDesignMatrix>
+            <OriginOutputs>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.h" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.d" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="mainValve.m_flow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.m_flow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.W_dot_mech" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.W_dot_fluid" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="shaftInertia.w" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_in.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_out.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_in.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_out.h_outflow" Active="true"/>
+            </OriginOutputs>
+            <SimulationConfiguration>
+                <SolSetting InitStepLength="0" StopTime="1500" Tolerance="0.0001" Algorithm="Dassl" SaveEvent="true" StartTime="0" StepLength="3"/>
+            </SimulationConfiguration>
+            <ResultSets/>
+        </Experiment>
+        <Experiment TimeStamp="20260420115656796" MethodIndex="0" Type="Batch" Name="mainvalveOpeningScan">
+            <OriginInputs>
+                <BatchInputParameter FullName="valve_k" Active="true">
+                    <UserDataSets Values="0.9;0.8;0.7;0.6;0.5;0.4"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.5" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbine.V_s" Active="false">
+                    <UserDataSets Values="0.0003;0.0003;0.0003;0.0003;0.0003;0.0003"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.00029999999999999997" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.height" Active="false">
+                    <UserDataSets Values="0.5;0.5;0.5;0.5;0.5;0.005"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.0050000000000000001" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.startTime" Active="false">
+                    <UserDataSets Values="500;0;0;0;0;0"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="500" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.duration" Active="false">
+                    <UserDataSets Values="120;0;0;0;0;0"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="120" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+            </OriginInputs>
+            <SimInputs>
+                <BatchInputParameter FullName="valve_k" Active="true">
+                    <UserDataSets Values="0.9;0.8;0.7;0.6;0.5;0.4"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.5" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+            </SimInputs>
+            <SimDesignMatrix>
+                <InputParameter VarType="Real" DisplayName="valve_k" Unit="" Minimum="" Varindex="1072656" Description="主阀固定开度" Maximum="" FullName="valve_k" DefaultValue="0.5" Values="0.9;0.8;0.7;0.6;0.5;0.4" Active="true" VarRef="4" DisplayUnit="" DisplayValue="0.5"/>
+            </SimDesignMatrix>
+            <OriginOutputs>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.h" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.d" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="mainValve.m_flow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.m_flow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.W_dot_mech" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.W_dot_fluid" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="shaftInertia.w" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_in.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_out.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_in.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_out.h_outflow" Active="true"/>
+            </OriginOutputs>
+            <SimulationConfiguration>
+                <SolSetting InitStepLength="0" StopTime="1500" Tolerance="0.0001" Algorithm="Dassl" SaveEvent="true" StartTime="0" StepLength="3"/>
+            </SimulationConfiguration>
+            <ResultSets>
+                <Item Index="1" RelativePath="Result-1"/>
+                <Item Index="2" RelativePath="Result-2"/>
+                <Item Index="3" RelativePath="Result-3"/>
+                <Item Index="4" RelativePath="Result-4"/>
+                <Item Index="5" RelativePath="Result-5"/>
+                <Item Index="6" RelativePath="Result-6"/>
+            </ResultSets>
+        </Experiment>
+        <Experiment TimeStamp="20260420120000999" MethodIndex="0" Type="Batch" Name="turbineVsScan">
+            <OriginInputs>
+                <BatchInputParameter FullName="valve_k" Active="false">
+                    <UserDataSets Values="0.5;0.5;0.5;0.5;0.5"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.5" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbine.V_s" Active="true">
+                    <UserDataSets Values="0.0003;0.0005;0.0008;0.001;0.0015"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.00029999999999999997" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.height" Active="false">
+                    <UserDataSets Values="0.5;0.5;0.5;0.5;0.5"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.0050000000000000001" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.startTime" Active="false">
+                    <UserDataSets Values="500;0;0;0;0"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="500" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.duration" Active="false">
+                    <UserDataSets Values="120;0;0;0;0"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="120" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+            </OriginInputs>
+            <SimInputs>
+                <BatchInputParameter FullName="turbine.V_s" Active="true">
+                    <UserDataSets Values="0.0003;0.0005;0.0008;0.001;0.0015"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.00029999999999999997" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+            </SimInputs>
+            <SimDesignMatrix>
+                <InputParameter VarType="Real" DisplayName="turbine.V_s" Unit="m3" Minimum="" Varindex="1117456" Description="标称排量 (m3/rev)" Maximum="" FullName="turbine.V_s" DefaultValue="0.00029999999999999997" Values="0.0003;0.0005;0.0008;0.001;0.0015" Active="true" VarRef="1706" DisplayUnit="m3" DisplayValue="0.00029999999999999997"/>
+            </SimDesignMatrix>
+            <OriginOutputs>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.h" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.d" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="mainValve.m_flow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.m_flow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.W_dot_mech" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.W_dot_fluid" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="shaftInertia.w" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_in.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_out.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_in.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_out.h_outflow" Active="true"/>
+            </OriginOutputs>
+            <SimulationConfiguration>
+                <SolSetting InitStepLength="0" StopTime="2000" Tolerance="0.0001" Algorithm="Dassl" SaveEvent="true" StartTime="0" StepLength="4"/>
+            </SimulationConfiguration>
+            <ResultSets/>
+        </Experiment>
+        <Experiment TimeStamp="20260420151410031" MethodIndex="0" Type="Batch" Name="turbinestarttimeScan">
+            <OriginInputs>
+                <BatchInputParameter FullName="valve_k" Active="false">
+                    <UserDataSets Values="0.5;0.5;0.5;0.5"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.5" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbine.V_s" Active="false">
+                    <UserDataSets Values="0.0003;0.0003;0.0003;0.0003"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.00029999999999999997" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.height" Active="false">
+                    <UserDataSets Values="0.5;0.5;0.5;0.5"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.0050000000000000001" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.startTime" Active="true">
+                    <UserDataSets Values="300;500;700;900"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="500" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.duration" Active="false">
+                    <UserDataSets Values="120;0;0;0"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="120" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+            </OriginInputs>
+            <SimInputs>
+                <BatchInputParameter FullName="turbineInValveRamp.startTime" Active="true">
+                    <UserDataSets Values="300;500;700;900"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="500" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+            </SimInputs>
+            <SimDesignMatrix>
+                <InputParameter VarType="Real" DisplayName="turbineInValveRamp.startTime" Unit="s" Minimum="" Varindex="1130512" Description="Output y = offset for time &lt; startTime" Maximum="" FullName="turbineInValveRamp.startTime" DefaultValue="500" Values="300;500;700;900" Active="true" VarRef="2168" DisplayUnit="s" DisplayValue="500"/>
+            </SimDesignMatrix>
+            <OriginOutputs>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.h" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.d" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="mainValve.m_flow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.m_flow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.W_dot_mech" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.W_dot_fluid" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="shaftInertia.w" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_in.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_out.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_in.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_out.h_outflow" Active="true"/>
+            </OriginOutputs>
+            <SimulationConfiguration>
+                <SolSetting InitStepLength="0" StopTime="2000" Tolerance="0.0001" Algorithm="Dassl" SaveEvent="true" StartTime="0" StepLength="4"/>
+            </SimulationConfiguration>
+            <ResultSets>
+                <Item Index="1" RelativePath="Result-1"/>
+                <Item Index="2" RelativePath="Result-2"/>
+                <Item Index="3" RelativePath="Result-3"/>
+                <Item Index="4" RelativePath="Result-4"/>
+            </ResultSets>
+        </Experiment>
+        <Experiment TimeStamp="20260420162636898" MethodIndex="0" Type="Batch" Name="turbinedurationScan">
+            <OriginInputs>
+                <BatchInputParameter FullName="valve_k" Active="false">
+                    <UserDataSets Values="0.5;0.5;0.5;0.5;0.5"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.5" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbine.V_s" Active="false">
+                    <UserDataSets Values="0.0003;0.0003;0.0003;0.0003;0.0003"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.00029999999999999997" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.height" Active="false">
+                    <UserDataSets Values="0.5;0.5;0.5;0.5;0.5"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="0.0050000000000000001" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.startTime" Active="false">
+                    <UserDataSets Values="500;500;500;500;500"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="500" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="turbineInValveRamp.duration" Active="true">
+                    <UserDataSets Values="20;50;100;120;200"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="120" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+            </OriginInputs>
+            <SimInputs>
+                <BatchInputParameter FullName="turbineInValveRamp.duration" Active="true">
+                    <UserDataSets Values="20;50;100;120;200"/>
+                    <VaryingBetween2Limits NumBelow="0" Value="120" StepSize="0" NumAbove="0"/>
+                </BatchInputParameter>
+            </SimInputs>
+            <SimDesignMatrix>
+                <InputParameter VarType="Real" DisplayName="turbineInValveRamp.duration" Unit="s" Minimum="" Varindex="1130320" Description="Duration of ramp (= 0.0 gives a Step)" Maximum="" FullName="turbineInValveRamp.duration" DefaultValue="120" Values="20;50;100;120;200" Active="true" VarRef="2165" DisplayUnit="s" DisplayValue="120"/>
+            </SimDesignMatrix>
+            <OriginOutputs>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.h" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.d" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="mainValve.m_flow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.m_flow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.W_dot_mech" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.W_dot_fluid" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="shaftInertia.w" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_in.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_out.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_in.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="turbine.port_out.h_outflow" Active="true"/>
+            </OriginOutputs>
+            <SimulationConfiguration>
+                <SolSetting InitStepLength="0" StopTime="1500" Tolerance="0.0001" Algorithm="Dassl" SaveEvent="true" StartTime="0" StepLength="3"/>
+            </SimulationConfiguration>
+            <ResultSets>
+                <Item Index="1" RelativePath="Result-1"/>
+                <Item Index="2" RelativePath="Result-2"/>
+                <Item Index="3" RelativePath="Result-3"/>
+                <Item Index="4" RelativePath="Result-4"/>
+                <Item Index="5" RelativePath="Result-5"/>
+            </ResultSets>
+        </Experiment>
+    </Studies>
+</MWExperiment>

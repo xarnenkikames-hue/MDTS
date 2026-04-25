@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MWExperiment>
+    <ExperimentOptions>
+        <BasicOptions WorkPath="R134a_ORC_Step02_HotStart_exp" ParalleNum="8" HistogramBars="20" ifExportParameter="false"/>
+        <Model ModelName="R245faORC.b.R134a_ORC_Step02_HotStart"/>
+    </ExperimentOptions>
+    <Parameters>
+        <Inputs>
+            <Input Minimum="" Description="热源初始温度" Unit="" DisplayUnit="" Maximum="" FullName="hotTOffset" VarRef="19" Varindex="819536" Active="false" VarType="Real" DefaultValue="293.14999999999998" DisplayName="hotTOffset" DisplayValue="293.14999999999998"/>
+            <Input Minimum="" Description="热源升温增量" Unit="" DisplayUnit="" Maximum="" FullName="hotTHeight" VarRef="20" Varindex="819600" Active="false" VarType="Real" DefaultValue="25" DisplayName="hotTHeight" DisplayValue="25"/>
+            <Input Minimum="" Description="热源增量" Unit="" DisplayUnit="" Maximum="" FullName="hotFlowHeight" VarRef="16" Varindex="819344" Active="false" VarType="Real" DefaultValue="0.5" DisplayName="hotFlowHeight" DisplayValue="0.5"/>
+        </Inputs>
+        <Outputs>
+            <Output Minimum="" Description="Absolute pressure of medium" Unit="Pa" DisplayUnit="Pa" Maximum="" FullName="receiver.medium.p" VarRef="52" Varindex="820430" Active="true" VarType="Real" DefaultValue="0" DisplayName="receiver.medium.p" DisplayValue="0"/>
+            <Output Minimum="" Description="Specific enthalpy of medium" Unit="J/kg" DisplayUnit="J/kg" Maximum="" FullName="receiver.medium.h" VarRef="53" Varindex="820558" Active="true" VarType="Real" DefaultValue="0" DisplayName="receiver.medium.h" DisplayValue="0"/>
+            <Output Minimum="" Description="Density of medium" Unit="kg/m3" DisplayUnit="kg/m3" Maximum="" FullName="receiver.medium.d" VarRef="54" Varindex="820672" Active="true" VarType="Real" DefaultValue="0" DisplayName="receiver.medium.d" DisplayValue="0"/>
+            <Output Minimum="" Description="管程侧传热总量" Unit="W" DisplayUnit="W" Maximum="" FullName="evaporator.Q_flow_1" VarRef="373" Varindex="828288" Active="true" VarType="Real" DefaultValue="0" DisplayName="evaporator.Q_flow_1" DisplayValue="0"/>
+            <Output Minimum="" Description="壳程侧传热总量" Unit="W" DisplayUnit="W" Maximum="" FullName="evaporator.Q_flow_2" VarRef="374" Varindex="828352" Active="true" VarType="Real" DefaultValue="0" DisplayName="evaporator.Q_flow_2" DisplayValue="0"/>
+            <Output Minimum="" Description="Thermodynamic pressure in the connection point" Unit="Pa" DisplayUnit="Pa" Maximum="" FullName="evaporator.port_b1.p" VarRef="817" Varindex="830785" Active="true" VarType="Real" DefaultValue="0" DisplayName="evaporator.port_b1.p" DisplayValue="0"/>
+            <Output Minimum="" Description="Thermodynamic pressure in the connection point" Unit="Pa" DisplayUnit="Pa" Maximum="" FullName="evaporator.port_a1.p" VarRef="820" Varindex="825537" Active="true" VarType="Real" DefaultValue="0" DisplayName="evaporator.port_a1.p" DisplayValue="0"/>
+            <Output Minimum="" Description="Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0" Unit="J/kg" DisplayUnit="J/kg" Maximum="" FullName="evaporator.port_b1.h_outflow" VarRef="818" Varindex="830849" Active="true" VarType="Real" DefaultValue="0" DisplayName="evaporator.port_b1.h_outflow" DisplayValue="0"/>
+            <Output Minimum="" Description="Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0" Unit="J/kg" DisplayUnit="J/kg" Maximum="" FullName="evaporator.port_a1.h_outflow" VarRef="821" Varindex="830273" Active="true" VarType="Real" DefaultValue="0" DisplayName="evaporator.port_a1.h_outflow" DisplayValue="0"/>
+            <Output Minimum="" Description="管程侧传热总量" Unit="W" DisplayUnit="W" Maximum="" FullName="condenser.Q_flow_1" VarRef="868" Varindex="841024" Active="true" VarType="Real" DefaultValue="0" DisplayName="condenser.Q_flow_1" DisplayValue="0"/>
+            <Output Minimum="" Description="壳程侧传热总量" Unit="W" DisplayUnit="W" Maximum="" FullName="condenser.Q_flow_2" VarRef="869" Varindex="841088" Active="true" VarType="Real" DefaultValue="0" DisplayName="condenser.Q_flow_2" DisplayValue="0"/>
+            <Output Minimum="" Description="Thermodynamic pressure in the connection point" Unit="Pa" DisplayUnit="Pa" Maximum="" FullName="condenser.port_b1.p" VarRef="1312" Varindex="843713" Active="true" VarType="Real" DefaultValue="0" DisplayName="condenser.port_b1.p" DisplayValue="0"/>
+            <Output Minimum="" Description="Thermodynamic pressure in the connection point" Unit="Pa" DisplayUnit="Pa" Maximum="" FullName="condenser.port_a1.p" VarRef="1315" Varindex="843329" Active="true" VarType="Real" DefaultValue="0" DisplayName="condenser.port_a1.p" DisplayValue="0"/>
+            <Output Minimum="" Description="Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0" Unit="J/kg" DisplayUnit="J/kg" Maximum="" FullName="condenser.port_b1.h_outflow" VarRef="1313" Varindex="843777" Active="true" VarType="Real" DefaultValue="0" DisplayName="condenser.port_b1.h_outflow" DisplayValue="0"/>
+            <Output Minimum="" Description="Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0" Unit="J/kg" DisplayUnit="J/kg" Maximum="" FullName="condenser.port_a1.h_outflow" VarRef="1316" Varindex="843393" Active="true" VarType="Real" DefaultValue="0" DisplayName="condenser.port_a1.h_outflow" DisplayValue="0"/>
+            <Output Minimum="" Description="Mass flow rate in design flow direction" Unit="kg/s" DisplayUnit="kg/s" Maximum="" FullName="mainValve.m_flow" VarRef="1335" Varindex="852672" Active="true" VarType="Real" DefaultValue="0" DisplayName="mainValve.m_flow" DisplayValue="0"/>
+        </Outputs>
+    </Parameters>
+    <Studies>
+        <Experiment TimeStamp="20260418185000032" Name="hotTOffsetScan" MethodIndex="0" Type="Batch">
+            <OriginInputs>
+                <BatchInputParameter FullName="hotTOffset" Active="true">
+                    <UserDataSets Values="293.15;298.15;303.15;308.15;313.15"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="293.14999999999998" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="hotTHeight" Active="false">
+                    <UserDataSets Values="25;25;25;25;25"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="25" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="hotFlowHeight" Active="false">
+                    <UserDataSets Values="0.5;0.5;0.5;0.5;0.5"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="0.5" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+            </OriginInputs>
+            <SimInputs/>
+            <SimDesignMatrix/>
+            <OriginOutputs>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.h" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.d" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_b1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_a1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_b1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_a1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_b1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_a1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_b1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_a1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="mainValve.m_flow" Active="true"/>
+            </OriginOutputs>
+            <SimulationConfiguration>
+                <SolSetting StepLength="0.002" Algorithm="Dassl" StartTime="0" StopTime="1" Tolerance="0.0001" InitStepLength="0" SaveEvent="true"/>
+            </SimulationConfiguration>
+            <ResultSets/>
+        </Experiment>
+        <Experiment TimeStamp="20260418185141598" Name="hotHeightScan" MethodIndex="0" Type="Batch">
+            <OriginInputs>
+                <BatchInputParameter FullName="hotTOffset" Active="false">
+                    <UserDataSets Values="293.15;293.15;293.15;293.15;293.15"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="293.14999999999998" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="hotTHeight" Active="true">
+                    <UserDataSets Values="20;22;25;28;30"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="25" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="hotFlowHeight" Active="false">
+                    <UserDataSets Values="0.5;0.5;0.5;0.5;0.5"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="0.5" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+            </OriginInputs>
+            <SimInputs/>
+            <SimDesignMatrix/>
+            <OriginOutputs>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.h" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.d" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_b1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_a1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_b1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_a1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_b1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_a1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_b1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_a1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="mainValve.m_flow" Active="true"/>
+            </OriginOutputs>
+            <SimulationConfiguration>
+                <SolSetting StepLength="0.002" Algorithm="Dassl" StartTime="0" StopTime="1" Tolerance="0.0001" InitStepLength="0" SaveEvent="true"/>
+            </SimulationConfiguration>
+            <ResultSets/>
+        </Experiment>
+        <Experiment TimeStamp="20260418185243020" Name="hotFlowScan30315" MethodIndex="0" Type="Batch">
+            <OriginInputs>
+                <BatchInputParameter FullName="hotTOffset" Active="true">
+                    <UserDataSets Values="303.15;303.15;303.15;303.15;303.15"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="293.14999999999998" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="hotTHeight" Active="false">
+                    <UserDataSets Values="25;25;25;25;25"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="25" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="hotFlowHeight" Active="true">
+                    <UserDataSets Values="0.2;0.35;0.5;0.55;0.6"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="0.5" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+            </OriginInputs>
+            <SimInputs>
+                <BatchInputParameter FullName="hotTOffset" Active="true">
+                    <UserDataSets Values="303.15;303.15;303.15;303.15;303.15"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="293.14999999999998" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="hotFlowHeight" Active="true">
+                    <UserDataSets Values="0.2;0.35;0.5;0.55;0.6"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="0.5" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+            </SimInputs>
+            <SimDesignMatrix>
+                <InputParameter Minimum="" Description="热源初始温度" Unit="" Values="303.15;303.15;303.15;303.15;303.15" DisplayUnit="" Maximum="" FullName="hotTOffset" VarRef="19" Varindex="819536" Active="true" VarType="Real" DefaultValue="293.14999999999998" DisplayName="hotTOffset" DisplayValue="293.14999999999998"/>
+                <InputParameter Minimum="" Description="热源增量" Unit="" Values="0.2;0.35;0.5;0.55;0.6" DisplayUnit="" Maximum="" FullName="hotFlowHeight" VarRef="16" Varindex="819344" Active="true" VarType="Real" DefaultValue="0.5" DisplayName="hotFlowHeight" DisplayValue="0.5"/>
+            </SimDesignMatrix>
+            <OriginOutputs>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.h" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.d" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_b1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_a1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_b1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_a1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_b1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_a1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_b1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_a1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="mainValve.m_flow" Active="true"/>
+            </OriginOutputs>
+            <SimulationConfiguration>
+                <SolSetting StepLength="2" Algorithm="Dassl" StartTime="0" StopTime="1000" Tolerance="0.0001" InitStepLength="0" SaveEvent="true"/>
+            </SimulationConfiguration>
+            <ResultSets/>
+        </Experiment>
+        <Experiment TimeStamp="20260418185452568" Name="hotFlowScan30815" MethodIndex="0" Type="Batch">
+            <OriginInputs>
+                <BatchInputParameter FullName="hotTOffset" Active="true">
+                    <UserDataSets Values="308.15;308.15;308.15;308.15;308.15"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="293.14999999999998" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="hotTHeight" Active="false">
+                    <UserDataSets Values="25;25;25;25;25"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="25" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="hotFlowHeight" Active="true">
+                    <UserDataSets Values="0.2;0.35;0.5;0.65;0.8"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="0.5" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+            </OriginInputs>
+            <SimInputs>
+                <BatchInputParameter FullName="hotTOffset" Active="true">
+                    <UserDataSets Values="308.15;308.15;308.15;308.15;308.15"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="293.14999999999998" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+                <BatchInputParameter FullName="hotFlowHeight" Active="true">
+                    <UserDataSets Values="0.2;0.35;0.5;0.65;0.8"/>
+                    <VaryingBetween2Limits NumAbove="0" Value="0.5" StepSize="0" NumBelow="0"/>
+                </BatchInputParameter>
+            </SimInputs>
+            <SimDesignMatrix>
+                <InputParameter Minimum="" Description="热源初始温度" Unit="" Values="308.15;308.15;308.15;308.15;308.15" DisplayUnit="" Maximum="" FullName="hotTOffset" VarRef="19" Varindex="819536" Active="true" VarType="Real" DefaultValue="293.14999999999998" DisplayName="hotTOffset" DisplayValue="293.14999999999998"/>
+                <InputParameter Minimum="" Description="热源增量" Unit="" Values="0.2;0.35;0.5;0.65;0.8" DisplayUnit="" Maximum="" FullName="hotFlowHeight" VarRef="16" Varindex="819344" Active="true" VarType="Real" DefaultValue="0.5" DisplayName="hotFlowHeight" DisplayValue="0.5"/>
+            </SimDesignMatrix>
+            <OriginOutputs>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.h" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="receiver.medium.d" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_b1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_a1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_b1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="evaporator.port_a1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.Q_flow_1" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.Q_flow_2" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_b1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_a1.p" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_b1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="condenser.port_a1.h_outflow" Active="true"/>
+                <ObservedVariable IsCompoundOutput="false" FullName="mainValve.m_flow" Active="true"/>
+            </OriginOutputs>
+            <SimulationConfiguration>
+                <SolSetting StepLength="3" Algorithm="Dassl" StartTime="0" StopTime="1500" Tolerance="0.0001" InitStepLength="0" SaveEvent="true"/>
+            </SimulationConfiguration>
+            <ResultSets/>
+        </Experiment>
+    </Studies>
+</MWExperiment>
